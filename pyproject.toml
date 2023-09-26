@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hcai"
+version = "0.1.0"
+description = ""
+authors = ["Stijn van Houwelingen <stijn@van-houwelingen.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+dev = "python src/manage.py runserver"
