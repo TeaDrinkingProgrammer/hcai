@@ -1,5 +1,10 @@
-{% if test_bool %}
-    <p>True</p>
-{% else %}
-    <p>False</p>
-{% endif %}
+{% extends "base.html" %}
+
+{% block content %}
+    {% if test_bool %}
+        <p>True</p>
+    {% else %}
+        <p>False</p>
+    {% endif %}
+    <p class="text-purple-500">If this text is purple, tailwind works</p>
+{% endblock content %}
