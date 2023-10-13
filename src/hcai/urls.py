@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from . import good_app
+from . import good_app, formsendpoint
 
 urlpatterns = [
+    path('', good_app.index),
     path("__reload__/", include("django_browser_reload.urls")),
     path("admin/", admin.site.urls),
-    path('', good_app.index, name="index")
+    path('your-name/', formsendpoint.get_name),
 ]
