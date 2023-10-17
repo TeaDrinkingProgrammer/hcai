@@ -1,14 +1,14 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="">
+<html class="scroll-smooth" lang="">
   <head>
     <meta charset="utf-8">
     <title>HCAI</title>
     {% tailwind_css %}
   </head>
-  <body>
+  <body class="h-screen bg-zinc-800 text-white">
     <header></header>
-    <main>{% block content %}{% endblock content %}</main>
+    <main class="">{% block content %}{% endblock content %}</main>
     <footer></footer>
   </body>
 </html>

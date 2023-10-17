@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from hcai.__init__ import *
 from django.shortcuts import render
+
 def index(request):
     
     modeltest = model.test()
@@ -13,4 +14,4 @@ def index(request):
         "data": data,
         "tests": image,
     }
-    return render(request, "hcai/good_app.html", context)
+    return render(request, "hcai/test.html", context)
