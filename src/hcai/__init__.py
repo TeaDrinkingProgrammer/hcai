@@ -1,2 +1,2 @@
-from hcai.model import Model
+from hcai.libs.model import Model
 model = Model()
