@@ -1,9 +1,7 @@
-import base64
-from io import BytesIO
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from hcai.img import Img
+from hcai.libs.img import Img
 import numpy as np
 import shap
 
@@ -17,5 +15,5 @@ class Model:
         image.from_figure(plot.get_figure())
 
         return (self.iris.head().to_records(), self.iris.head(), image)
-    def testshap(self):
-        pass
+    def predict(carat: float, x: float, y: float, z: float):
+        return 100.0

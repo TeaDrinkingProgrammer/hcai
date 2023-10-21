@@ -21,4 +21,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-dev = "python src/manage.py runserver"
+#"python src/manage.py runserver"
+#"python src/manage.py tailwind start"

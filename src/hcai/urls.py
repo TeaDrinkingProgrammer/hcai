@@ -14,13 +14,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import include, path
-from . import good_app, formsendpoint
+
+from .app import home
+from .app.good_app import home as ga_home
+from .app.good_app import questionaire as ga_questionaire
+from .app.good_app import explanation as ga_explanation
+from .app.test_app import test_app, test_form
+
+good_app_patterns = [
+    path("", ga_home.index),
+    path("questionaire/", ga_questionaire.index),
+    path("explanation/", ga_explanation.index),
+]
 
 urlpatterns = [
-    path('', good_app.index),
     path("__reload__/", include("django_browser_reload.urls")),
-    path("admin/", admin.site.urls),
-    path('your-name/', formsendpoint.get_name),
+    # path("admin/", admin.site.urls),
+    path("", home.index),
+    path("good_app/", include(good_app_patterns)),
+    path("test/", test_app.index),
+    path("your-name/", test_form.index),
 ]
+
