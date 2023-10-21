@@ -1,8 +1,8 @@
 # FROM mcr.microsoft.com/devcontainers/base:${templateOption:imageVariant}
-FROM mcr.microsoft.com/devcontainers/base:jammy
+FROM node:18-bullseye-slim
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG USER=vscode
+ARG USER=node
 
 RUN DEBIAN_FRONTEND=noninteractive \
     && apt-get update \ 
