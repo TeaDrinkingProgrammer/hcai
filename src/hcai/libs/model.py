@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from hcai.libs.img import Img
-# import numpy as np
-# import shap
+import numpy as np
+import shap
 
 class Model:
     def __init__(self):
