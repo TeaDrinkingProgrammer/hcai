@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from hcai.img import Img
 import numpy as np
-import xgboost
 import shap
 
 class Model:
@@ -19,4 +18,4 @@ class Model:
 
         return (self.iris.head().to_records(), self.iris.head(), image)
     def testshap(self):
-        
+        pass
