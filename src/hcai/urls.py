@@ -28,11 +28,18 @@ good_app_patterns = [
     path("explanation/", ga_explanation.index),
 ]
 
+bad_app_patterns = [
+    path("", ga_home.index),
+    path("questionaire/", ga_questionaire.index),
+    path("explanation/", ga_explanation.index),
+]
+
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     # path("admin/", admin.site.urls),
     path("", home.index),
     path("good_app/", include(good_app_patterns)),
+    path("bad_app/", include(good_app_patterns)),
     path("test/", test_app.index),
     path("your-name/", test_form.index),
 ]
