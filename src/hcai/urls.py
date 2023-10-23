@@ -22,10 +22,20 @@ from .app.good_app import questionaire as ga_questionaire
 from .app.good_app import explanation as ga_explanation
 from .app.test_app import test_app, test_form
 
+from .app.bad_app import home as ba_home
+from .app.bad_app import questionaire as ba_questionaire
+from .app.bad_app import explanation as ba_explanation
+
 good_app_patterns = [
     path("", ga_home.index),
     path("questionaire/", ga_questionaire.index),
     path("explanation/", ga_explanation.index),
+]
+
+bad_app_patterns = [
+    path("", ba_home.index),
+    path("questionaire/", ba_questionaire.index),
+    path("explanation/", ba_explanation.index),
 ]
 
 urlpatterns = [
@@ -33,6 +43,7 @@ urlpatterns = [
     # path("admin/", admin.site.urls),
     path("", home.index),
     path("good_app/", include(good_app_patterns)),
+    path("bad_app/", include(bad_app_patterns)),
     path("test/", test_app.index),
     path("your-name/", test_form.index),
 ]
