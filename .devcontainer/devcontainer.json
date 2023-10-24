@@ -30,6 +30,13 @@
 		"source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
 	],
 
-	// 👇 Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
+	//Uncomment the below for Docker:
+	// "remoteUser": "root"
+	
+	//The below options are for podman (comment if you are using docker)
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
+	"workspaceFolder": "/workspace",
+
+	"runArgs": ["--userns=keep-id"],
+	"containerUser": "node"
 }
