@@ -12,8 +12,11 @@ def index(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
             form.cleaned_data["carat"] = form.cleaned_data["carat_mg"] * 0.005
+
             # redirect to a new URL:
             print("Data" , form.cleaned_data)
+            prediction = model.predict(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"])
+            print("Predicted: ", prediction)
             return HttpResponseRedirect("/good_app/explanation")
     # if a GET (or any other method) we'll create a blank form
     else:

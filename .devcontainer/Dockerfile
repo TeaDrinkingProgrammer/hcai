@@ -27,6 +27,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
 # Shap/llvm-lite dependency
 RUN DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y llvm-dev
+# Git LFS
+RUN DEBIAN_FRONTEND=noninteractive \
+    && apt-get install -y git-lfs
 # Python and poetry installation
 USER $USER
 ARG HOME="/home/$USER"
@@ -45,3 +48,5 @@ RUN echo "done 0" \
     && echo "done 3" \
     && curl -sSL https://install.python-poetry.org | python3 - \
     && poetry config virtualenvs.in-project true
+
+RUN git lfs install

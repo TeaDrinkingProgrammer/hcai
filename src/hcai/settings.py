@@ -77,6 +77,8 @@ TEMPLATES = [
     },
 ]
 
+MODELS = os.path.join(BASE_DIR, 'hcai/libs/models')
+
 WSGI_APPLICATION = "hcai.wsgi.application"
 
 
