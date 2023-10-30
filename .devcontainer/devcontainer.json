@@ -30,13 +30,12 @@
 		"source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
 	],
 
-	//Uncomment the below for Docker:
-	// "remoteUser": "root"
+	"remoteUser": "root",
+	"containerUser": "node",
 	
-	//The below options are for podman (comment if you are using docker)
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
-	"workspaceFolder": "/workspace",
+	//Podman. Comment out when using Docker
+	// "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
+	// "workspaceFolder": "/workspace",
 
-	"runArgs": ["--userns=keep-id"],
-	"containerUser": "node"
+	// "runArgs": ["--userns=keep-id"]
 }
