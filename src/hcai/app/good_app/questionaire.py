@@ -2,6 +2,7 @@ from hcai.app.forms import GoodAppInputForm
 from django.http import HttpResponseRedirect
 from hcai.__init__ import *
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 def index(request):
     # if this is a POST request we need to process the form data
@@ -17,7 +18,8 @@ def index(request):
             print("Data" , form.cleaned_data)
             prediction = model.predict(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"])
             print("Predicted: ", prediction)
-            return HttpResponseRedirect("/good_app/explanation")
+            request.session['formdata'] = form.cleaned_data
+            return redirect("/good_app/explanation")
     # if a GET (or any other method) we'll create a blank form
     else:
         form = GoodAppInputForm()

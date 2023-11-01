@@ -19,23 +19,28 @@ from django.urls import include, path
 from .app import home
 from .app.good_app import home as ga_home
 from .app.good_app import questionaire as ga_questionaire
+from .app.good_app import result as ga_result
 from .app.good_app import explanation as ga_explanation
+from .app.good_app import privacy as ga_privacy
+
 from .app.test_app import test_app, test_form
 
 from .app.bad_app import home as ba_home
 from .app.bad_app import questionaire as ba_questionaire
-from .app.bad_app import explanation as ba_explanation
+from .app.bad_app import result as ba_result
 
 good_app_patterns = [
     path("", ga_home.index),
     path("questionaire/", ga_questionaire.index),
+    path("result/", ga_result.index),
     path("explanation/", ga_explanation.index),
+     path("privacy/", ga_privacy.index),
 ]
 
 bad_app_patterns = [
     path("", ba_home.index),
     path("questionaire/", ba_questionaire.index),
-    path("explanation/", ba_explanation.index),
+    path("result/", ba_result.index),
 ]
 
 urlpatterns = [
@@ -47,4 +52,3 @@ urlpatterns = [
     path("test/", test_app.index),
     path("your-name/", test_form.index),
 ]
-

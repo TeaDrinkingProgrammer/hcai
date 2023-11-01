@@ -34,8 +34,8 @@
 	"containerUser": "node",
 	
 	//Podman. Comment out when using Docker
-	// "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
-	// "workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,Z",
+	"workspaceFolder": "/workspace",
 
-	// "runArgs": ["--userns=keep-id"]
+	"runArgs": ["--userns=keep-id"]
 }

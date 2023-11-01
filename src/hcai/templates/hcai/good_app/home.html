@@ -1,8 +1,8 @@
-{% extends "base.html" %}
-
-{% load static %}
+{% extends "./components/ga_base.html" %}
 
 {% block content %}
+
+
 <section class="flex flex-col gap-5 py-5 items-center justify-center h-screen">
     <h2 class="mb-4 text-4xl font-semibold">Een eerlijke prijs voor uw diamant</h2>
     <h4 class="mb-6 text-xl font-semibold">Een schatting op maat met behulp van Kunstmatige Intelligentie</h4>
@@ -32,9 +32,12 @@
                     <a 
                     class="underline underline-offset-8 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" 
                     href="https://www.kaggle.com/datasets/shivam2503/diamonds">
-                    echte data
+                    echte diamantenverkooptransacties
                     </a> 
                     over de eigenschappen van diamanten en hun prijzen.</p>
+                    <a 
+                    class="underline underline-offset-8 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400"
+                    href="/good_app/explanation">Meer informatie</a>
             </div>
             <svg class="h-24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />

@@ -44,5 +44,13 @@ https://django-tailwind.readthedocs.io/en/latest/
 
 When running the dev server, run the following command to compile Tailwind:
 ```
-poetry run python manage.py tailwind build
+poetry shell
+python manage.py tailwind build
+```
+
+## Changes to static files
+Run the following command when the static files have changed:
+```
+poetry shell
+python manage.py collectstatic
 ```
