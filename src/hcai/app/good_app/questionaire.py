@@ -16,10 +16,10 @@ def index(request):
 
             # redirect to a new URL:
             print("Data" , form.cleaned_data)
-            prediction = model.predict(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"])
+            prediction = model.predict_good(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"])
             print("Predicted: ", prediction)
             request.session['formdata'] = form.cleaned_data
-            return redirect("/good_app/explanation")
+            return redirect("/good_app/result")
     # if a GET (or any other method) we'll create a blank form
     else:
         form = GoodAppInputForm()

@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import include, path
+from django.contrib import admin
 
 from .app import home
 from .app.good_app import home as ga_home
@@ -34,7 +35,7 @@ good_app_patterns = [
     path("questionaire/", ga_questionaire.index),
     path("result/", ga_result.index),
     path("explanation/", ga_explanation.index),
-     path("privacy/", ga_privacy.index),
+    path("privacy/", ga_privacy.index),
 ]
 
 bad_app_patterns = [
@@ -45,7 +46,7 @@ bad_app_patterns = [
 
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
-    # path("admin/", admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", home.index),
     path("good_app/", include(good_app_patterns)),
     path("bad_app/", include(bad_app_patterns)),

@@ -54,3 +54,4 @@ Run the following command when the static files have changed:
 poetry shell
 python manage.py collectstatic
 ```
+If you get permission errors, you might have to rebuild the devcontainer

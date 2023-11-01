@@ -25,12 +25,28 @@ class Model:
         image.from_figure(plot.get_figure())
 
         return (self.iris.head().to_records(), self.iris.head(), image)
-    def predict(self, carat: float, x: float, y: float, z: float):
+    def predict_good(self, carat: float, x: float, y: float, z: float):
         x_input = np.array([carat, x, y, z]).reshape(1, -1)
         x_input = self.scaler.transform(x_input)
         if (carat > 5.01 or x > 10.74 or y > 58.9 or z > 31.8):
             print("Using linear model")
-            return self.linear_model.predict(x_input)
+            prediction = self.linear_model.predict(x_input)
+            return 0 if prediction < 0 else prediction
         else:
             print("Using random forest model")
-            return self.random_forest_model.predict(x_input)
+            prediction = self.random_forest_model.predict(x_input)
+            return 0 if prediction < 0 else prediction
+        
+
+    def predict_bad(self, carat: float, x: float, y: float, z: float, buy: bool, fast_sale: bool = False):
+        prediction = self.predict_good(carat, x, y, z)
+        if buy:
+            return self.mutate_price_by_percentage(prediction, 10)
+        else:
+            if fast_sale:
+                return self.mutate_price_by_percentage(prediction, -15)
+            else:
+                return self.mutate_price_by_percentage(prediction, -10)
+    
+    def mutate_price_by_percentage(price, percentage):
+        return price + (price * percentage / 100)

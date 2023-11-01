@@ -1,15 +1,17 @@
 {% extends "./components/ga_base.html" %}
 
+{% load static %}
+
 {% block content %}
 
-
 <section class="flex flex-col gap-5 py-5 items-center justify-center h-screen">
+    <img class="w-3/12" src="{% static '/media/logo_text.png' %}" alt="My image">
     <h2 class="mb-4 text-4xl font-semibold">Een eerlijke prijs voor uw diamant</h2>
     <h4 class="mb-6 text-xl font-semibold">Een schatting op maat met behulp van Kunstmatige Intelligentie</h4>
     <a
     href="#briefing"
     type="button"
-    class="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+    class="rounded border-2 border-neutral-600 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-600 transition duration-150 ease-in-out hover:border-neutral-950 hover:bg-neutral-950 hover:bg-opacity-10 hover:text-neutral-950 focus:border-neutral-950 focus:text-neutral-950 focus:outline-none focus:ring-0"
     data-te-ripple-init
     data-te-ripple-color="light">
     Hoe het werkt
@@ -21,7 +23,7 @@
         <div class="flex flex-col items-center gap-6 w-2/3">
             <div class="flex flex-col gap-2 grow">
                 <h1 class="text-center text-2xl">Vragenlijst 🖊️</h1>
-                <p>U vult een vragenlijst in met vragen over de eigenschappen van uw diamant. Hierbij wordt niets permanent opgeslagen, ook niet persoonlijke gegevens.</p>
+                <p>U vult een vragenlijst in met vragen over de eigenschappen van uw diamant. Deze gegevens worden niet opgeslagen of gedeeld met derde partijen.</p>
             </div>
             <svg class="h-24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
@@ -51,7 +53,7 @@
             <a
             href="/good_app/questionaire"
             type="button"
-            class="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+            class="rounded border-2 border-neutral-600 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-600 transition duration-150 ease-in-out hover:border-neutral-950 hover:bg-neutral-950 hover:bg-opacity-10 hover:text-neutral-950 focus:border-neutral-950 focus:text-neutral-950 focus:outline-none focus:ring-0"
             data-te-ripple-init
             data-te-ripple-color="light">
             Maak de vragenlijst
