@@ -24,8 +24,6 @@ from .app.good_app import result as ga_result
 from .app.good_app import explanation as ga_explanation
 from .app.good_app import privacy as ga_privacy
 
-from .app.test_app import test_app, test_form
-
 from .app.bad_app import home as ba_home
 from .app.bad_app import questionaire as ba_questionaire
 from .app.bad_app import result as ba_result
@@ -50,6 +48,4 @@ urlpatterns = [
     path("", home.index),
     path("good_app/", include(good_app_patterns)),
     path("bad_app/", include(bad_app_patterns)),
-    path("test/", test_app.index),
-    path("your-name/", test_form.index),
 ]
