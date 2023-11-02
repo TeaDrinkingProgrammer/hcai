@@ -1,7 +1,8 @@
 import numpy as np
 import pickle
 import os
-# from sklearn.preprocessing import StandardScaler
+# Neccessary for the model
+import sklearn
 from django.conf import settings
 
 class Model:

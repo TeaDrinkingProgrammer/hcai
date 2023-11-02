@@ -1,11 +1,8 @@
 import json
-import string
 from django.http import HttpRequest, HttpResponse
-from django.template import loader
 from hcai.__init__ import *
 from django.shortcuts import redirect, render
 
-from hcai.app.forms import FeedbackForm
 from hcai.app.models import Feedback
 
 def index(request: HttpRequest):
@@ -30,7 +27,7 @@ def index(request: HttpRequest):
     if rating is not None:
         # Get the rating from the request
         # After the rating is given, redirect to the result page
-        return render(request, "hcai/good_app/result.html", {"avg": avg, "n_votes": n_votes, "rating": rating})
+        return render(request, "hcai/bad_app/result.html", {"avg": avg, "n_votes": n_votes, "rating": rating})
     else:
-        return render(request, "hcai/good_app/result.html",{"avg": avg, "n_votes": n_votes, "rating": 0 })
+        return render(request, "hcai/bad_app/result.html",{"avg": avg, "n_votes": n_votes, "rating": 0 })
     

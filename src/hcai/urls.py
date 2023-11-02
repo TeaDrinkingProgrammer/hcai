@@ -25,11 +25,11 @@ from .app.good_app import explanation as ga_explanation
 from .app.good_app import privacy as ga_privacy
 
 from .app import home
-from .app.good_app import home as ba_home
-from .app.good_app import questionaire as ba_questionaire
-from .app.good_app import result as ba_result
-from .app.good_app import explanation as ba_explanation
-from .app.good_app import privacy as ba_privacy
+from .app.bad_app import home as ba_home
+from .app.bad_app import questionaire as ba_questionaire
+from .app.bad_app import result as ba_result
+from .app.bad_app import explanation as ba_explanation
+from .app.bad_app import privacy as ba_privacy
 
 good_app_patterns = [
     path("", ga_home.index),
