@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # Staticfiles folder
-src/staticfiles
+# src/staticfiles
