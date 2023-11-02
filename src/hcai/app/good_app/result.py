@@ -26,9 +26,9 @@ def index(request: HttpRequest):
         return HttpResponse(status=200)
     
     rating = request.GET.get('rating', None)
+    avg, n_votes = calc_avg()
     if rating is not None:
         # Get the rating from the request
-        avg, n_votes = calc_avg()
         # After the rating is given, redirect to the result page
         return render(request, "hcai/good_app/result.html", {"avg": avg, "n_votes": n_votes, "rating": rating})
     else:
