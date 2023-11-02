@@ -26,7 +26,7 @@ class Model:
             return 0 if prediction < 0 else prediction
         
 
-    def predict_bad(self, carat: float, x: float, y: float, z: float, buy: bool, fast_sale: bool = False):
+    def predict_bad(self, carat: float, x: float, y: float, z: float, buy: bool = True, fast_sale: bool = False):
         prediction = self.predict_good(carat, x, y, z)
         if buy:
             return self.mutate_price_by_percentage(prediction, 10)
@@ -36,5 +36,5 @@ class Model:
             else:
                 return self.mutate_price_by_percentage(prediction, -10)
     
-    def mutate_price_by_percentage(price, percentage):
+    def mutate_price_by_percentage(self, price, percentage):
         return price + (price * percentage / 100)

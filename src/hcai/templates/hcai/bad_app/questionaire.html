@@ -3,16 +3,18 @@
 {% block content %}
   <div class="flex justify-center items-center h-screen">
     <div class="w-full max-w-xs">
-      <form class="flex flex-col gap-3 p-5 bg-zinc-200 shadow-md rounded" action="/bad_app/questionaire/" method="post">
+      <form class="flex flex-col gap-5 p-5 bg-zinc-200 shadow-md rounded" action="/bad_app/questionaire/" method="post">
         {% csrf_token %}
-        <div class="flex flex-col">
+        <div class="flex flex-col gap-2">
           {% for field in form %}
-            <label 
-            class="block text-black text-sm font-bold pt-6 pb-3 [&>a]:underline [&>a]:underline-offset-8 [&>a]:decoration-2 [&>a]:hover:decoration-4 [&>a]:decoration-sky-500 [&>a]:dark:decoration-sky-400
-            " for="{{ field.auto_id }}">{{ field.label }}</label>
-            <!-- [&>\*]:accesses children classes   -->
-            <div class="flex justify-center [&>input]:w-full text-black">
-              {{ field }}
+            <div>
+              <label 
+              class="block text-black text-sm font-bold pb-3
+              " for="{{ field.auto_id }}">{{ field.label }}</label>
+              <!-- [&>\*]:accesses children classes   -->
+              <div class="flex justify-center [&>input]:w-full text-black">
+                {{ field }}
+              </div>
             </div>
           {% endfor %}
         </div>
@@ -27,21 +29,4 @@
       </form>
     </div>
   </div>
-    <!--  <div class="w-full max-w-xs">
-        <form class="flex flex-col gap-3 p-5 bg-white shadow-md rounded">
-          <div class="flex flex-col gap-1">
-            <label class="block text-gray-700 text-sm font-bold ">
-              Username
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
-          </div>
-          <div class="flex flex-col gap-1">
-            <label class="block text-gray-700 text-sm font-bold ">
-              Password
-            </label>
-            <input class="shadow appearance-none border border-red-500 rounded w-full text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
-            <p class="text-red-500 text-xs italic">Please choose a password.</p>
-          </div>
-        </form>
-      </div>  -->
 {% endblock content %}
