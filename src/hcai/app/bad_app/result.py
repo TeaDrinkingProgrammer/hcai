@@ -27,7 +27,15 @@ def index(request: HttpRequest):
     if rating is not None:
         # Get the rating from the request
         # After the rating is given, redirect to the result page
-        return render(request, "hcai/bad_app/result.html", {"avg": avg, "n_votes": n_votes, "rating": rating, "prediction": request.session.get('prediction', '')})
+        return render(
+            request, 
+            "hcai/bad_app/result.html", 
+            {"avg": avg, "n_votes": n_votes, "rating": rating, "prediction": request.session.get('prediction', ''), "quick_sell": request.session.get('quick_sell', '')}
+            )
     else:
-        return render(request, "hcai/bad_app/result.html",{"avg": avg, "n_votes": n_votes, "rating": 0, "prediction": request.session.get('prediction', '') })
+        return render(
+            request, 
+            "hcai/bad_app/result.html",
+            {"avg": avg, "n_votes": n_votes, "rating": 0, "prediction": request.session.get('prediction', ''), "quick_sell": request.session.get('quick_sell', '')}
+            )
     
