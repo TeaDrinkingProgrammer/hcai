@@ -1,5 +1,8 @@
 from django.db import models
-class Feedback(models.Model):
+class GoodAppFeedback(models.Model):
+    rating = models.PositiveSmallIntegerField()
+
+class BadAppFeedback(models.Model):
     rating = models.PositiveSmallIntegerField()
 
 class GoodAppInput(models.Model):

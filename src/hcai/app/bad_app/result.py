@@ -3,11 +3,11 @@ from django.http import HttpRequest, HttpResponse
 from hcai.__init__ import *
 from django.shortcuts import redirect, render
 
-from hcai.app.models import Feedback
+from hcai.app.models import BadAppFeedback
 
 def index(request: HttpRequest):
     def calc_avg():
-        feedbacks = Feedback.objects.all()
+        feedbacks = BadAppFeedback.objects.all()
         avg = 0
         if len(feedbacks) > 0:
             avg = sum([feedback.rating for feedback in feedbacks]) / len(feedbacks)
@@ -18,7 +18,7 @@ def index(request: HttpRequest):
         data = json.loads(request.body)
         # Get the rating from the request
         rating = data.get('rating', None)
-        feedback = Feedback(rating=rating)
+        feedback = BadAppFeedback(rating=rating)
         feedback.save()
         return HttpResponse(status=200)
     
