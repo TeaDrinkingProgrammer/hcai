@@ -18,23 +18,21 @@ class Model:
         x_input = self.scaler.transform(x_input)
         if (carat > 5.01 or x > 10.74 or y > 58.9 or z > 31.8):
             print("Using linear model")
-            prediction = self.linear_model.predict(x_input)
+            prediction = self.linear_model.predict(x_input)[0]
+            print("Prediction 2: ", prediction)
             return 0 if prediction < 0 else prediction
         else:
             print("Using random forest model")
-            prediction = self.random_forest_model.predict(x_input)
+            prediction = self.random_forest_model.predict(x_input)[0]
             return 0 if prediction < 0 else prediction
         
 
-    def predict_bad(self, carat: float, x: float, y: float, z: float, buy: bool = True, fast_sale: bool = False):
+    def predict_bad(self, carat: float, x: float, y: float, z: float, fast_sale: bool = False):
         prediction = self.predict_good(carat, x, y, z)
-        if buy:
-            return self.mutate_price_by_percentage(prediction, 10)
+        if fast_sale:
+            return self.mutate_price_by_percentage(prediction, -15)
         else:
-            if fast_sale:
-                return self.mutate_price_by_percentage(prediction, -15)
-            else:
-                return self.mutate_price_by_percentage(prediction, -10)
+            return self.mutate_price_by_percentage(prediction, -10)
     
     def mutate_price_by_percentage(self, price, percentage):
         return price + (price * percentage / 100)

@@ -1,7 +1,11 @@
 {% extends "./components/ga_base.html" %}
 
 {% block content %}
-    <div class="flex justify-center items-end h-screen pb-36">
+    <section>
+        <h1>Uw geschatte prijs is:</h1>
+        ${{ prediction}}
+    </section>
+    <section class="flex justify-center items-end h-screen pb-36">
         <div class="flex flex-col items-center gap-2 w-prose" style="padding: 2em">
             <h1 class="text-3xl">Feedback</h1>
             <section class="flex flex-col gap-1">
@@ -70,7 +74,7 @@
                 </div>
             </section>
         </div>
-    </div>
+    </section>
     <script>
         const rate = (rating, link) => {
             fetch("/good_app/result/", {

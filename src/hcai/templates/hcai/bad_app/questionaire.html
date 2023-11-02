@@ -9,8 +9,8 @@
           {% for field in form %}
             <div>
               <label 
-              class="block text-black text-sm font-bold pb-3
-              " for="{{ field.auto_id }}">{{ field.label }}</label>
+              class="block text-black text-sm font-bold pb-3 [&>a]:underline [&>a]:underline-offset-4 [&>a]:decoration-1 [&>a]:hover:decoration-2 [&>a]:decoration-sky-500 [&>a]:dark:decoration-sky-400"
+              for="{{ field.auto_id }}">{{ field.label }}</label>
               <!-- [&>\*]:accesses children classes   -->
               <div class="flex justify-center [&>input]:w-full text-black">
                 {{ field }}

@@ -11,15 +11,16 @@ class GoodAppInputForm(forms.Form):
     y = forms.FloatField(label="Breedte in mm", min_value=2, required= True)
     z = forms.FloatField(label="Diepte in mm", min_value=2, required= True)
     # Style is the same as h-8 w-8
-    accept_terms = forms.BooleanField(label = format_html("Click here to accept <a href='/good_app/privacy' a>the privacy policy</a>"),required= False, widget=forms.CheckboxInput(attrs={'style': 'width:2rem; height: 2rem'}))
-from django.utils.html import format_html
+    accept_terms = forms.BooleanField(label = format_html("Ik accepteer dat mijn data anoniem verwerkt wordt volgens de <a href='/good_app/privacy' a>privacyvoorwaarden</a>. Dit is niet verplicht"),required= False, widget=forms.CheckboxInput(attrs={'style': 'width:2rem; height: 2rem'}))
 
 class BadAppInputForm(forms.Form):
     carat_mg = forms.FloatField(label="Gewicht in mg", min_value=40, required= True)
     x = forms.FloatField(label="Lengte in mm", min_value=2, required= True)
     y = forms.FloatField(label="Breedte in mm", min_value=2, required= True)
     z = forms.FloatField(label="Diepte in mm", min_value=2, required= True)
-
+    quick_sell = forms.BooleanField(label = "Verkoop je diamand snel aan onze partner",required= False, widget=forms.CheckboxInput(attrs={'style': 'width:2rem; height: 2rem'}))
+    # Style is the same as h-8 w-8
+    accept_terms = forms.BooleanField(label = format_html("Klik hier om de <a href='/bad_app/privacy' a>privacyvoorwaarden</a> te accepteren"),required= True, widget=forms.CheckboxInput(attrs={'style': 'width:2rem; height: 2rem'}))
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback

@@ -1,10 +1,10 @@
-from hcai.app.forms import BadAppInputForm
 from django.http import HttpResponseRedirect
 from hcai.__init__ import *
 from django.shortcuts import render
 from django.shortcuts import redirect
+from hcai.app.forms import BadAppInputForm
 
-from hcai.app.models import GoodAppInput
+from hcai.app.models import BadAppInput
 
 def index(request):
     # if this is a POST request we need to process the form data
@@ -14,17 +14,17 @@ def index(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            form.cleaned_data["carat"] = form.cleaned_data["carat_mg"] * 0.005
+            form.cleaned_data["carat"] = round(form.cleaned_data["carat_mg"] * 0.005, 4)
 
-            databaseInput = GoodAppInput(x=form.cleaned_data["x"], y=form.cleaned_data["y"], z=form.cleaned_data["z"], carat=form.cleaned_data["carat"])
+            databaseInput = BadAppInput(x=form.cleaned_data["x"], y=form.cleaned_data["y"], z=form.cleaned_data["z"], carat=form.cleaned_data["carat"])
             databaseInput.save()
             print("Data stored")
 
             # redirect to a new URL:
             print("Data" , form.cleaned_data)
-            prediction = model.predict_bad(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"])
+            prediction = model.predict_bad(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"], form.cleaned_data["quick_sell"])
             print("Predicted: ", prediction)
-            request.session['formdata'] = form.cleaned_data
+            request.session['prediction'] = round(prediction, 2)
             return redirect("/bad_app/result")
     # if a GET (or any other method) we'll create a blank form
     else:
