@@ -1,13 +1,13 @@
-{% extends "./components/ga_base.html" %}
+{% extends "./components/ba_base.html" %}
 
 {% block content %}
   <div class="flex justify-center items-center h-screen">
     <div class="w-full max-w-xs">
-      <form class="flex flex-col gap-3 p-5 bg-zinc-600 shadow-md rounded" action="/bad_app/questionaire/" method="post">
+      <form class="flex flex-col gap-3 p-5 bg-zinc-300 shadow-md rounded" action="/bad_app/questionaire/" method="post">
         {% csrf_token %}
         <div class="flex flex-col gap-1">
           {% for field in form %}
-            <label class="block text-white text-sm font-bold" for="{{ field.auto_id }}">{{ field.label }}</label>
+            <label class="block text-black text-sm font-bold" for="{{ field.auto_id }}">{{ field.label }}</label>
             <!-- [&>\*]:accesses children classes   -->
             <div class="[&>*]:w-full text-black">
               {{ field }}
@@ -19,7 +19,7 @@
         href="/bad_app/questionaire"
         type="submit"
         value="Submit"
-        class="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+        class="rounded border-2 border-neutral-700 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-700 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-neutral-800 hover:bg-opacity-10 hover:text-neutral-800 focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0"
         data-te-ripple-init
         data-te-ripple-color="light">
       </form>

@@ -6,7 +6,8 @@
     <title>HCAI</title>
     {% tailwind_css %}
   </head>
-  <body class="h-screen">
+  {% block body %}
+  <body class="h-screen {{body_classes}}">
     <header></header>
       {% block nav %}{% endblock nav %}
       <main class="">
@@ -14,4 +15,6 @@
       </main>
     <footer></footer>
   </body>
+  {% endblock %}
+
 </html>
