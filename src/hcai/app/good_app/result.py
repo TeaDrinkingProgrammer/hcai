@@ -1,11 +1,8 @@
 import json
-import string
 from django.http import HttpRequest, HttpResponse
-from django.template import loader
 from hcai.__init__ import *
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 
-from hcai.app.forms import FeedbackForm
 from hcai.app.models import Feedback
 
 def index(request: HttpRequest):

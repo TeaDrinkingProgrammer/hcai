@@ -1,5 +1,4 @@
 from hcai.app.forms import GoodAppInputForm
-from django.http import HttpResponseRedirect
 from hcai.__init__ import *
 from django.shortcuts import render
 from django.shortcuts import redirect
