@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.urls import include, path
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from .app import home
 from .app.good_app import home as ga_home
@@ -54,3 +55,5 @@ urlpatterns = [
     path("good_app/", include(good_app_patterns)),
     path("bad_app/", include(bad_app_patterns)),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
