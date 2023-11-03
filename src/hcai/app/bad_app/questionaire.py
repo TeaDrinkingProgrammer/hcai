@@ -22,10 +22,14 @@ def index(request):
 
             # redirect to a new URL:
             print("Data" , form.cleaned_data)
-            prediction = model.predict_bad(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"], form.cleaned_data["quick_sell"])
+            prediction, model_type = model.predict_bad(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"], form.cleaned_data["quick_sell"])
             print("Predicted: ", prediction)
             request.session['prediction'] = round(prediction, 2)
             request.session['quick_sell'] = form.cleaned_data["quick_sell"]
+
+            request.session['form'] = form.cleaned_data
+            request.session['model_type'] = model_type
+            
             return redirect("/bad_app/result")
     # if a GET (or any other method) we'll create a blank form
     else:

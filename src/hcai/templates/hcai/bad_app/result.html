@@ -7,6 +7,11 @@
                 <h1 class="text-3xl">Uw geschatte prijs is:</h1>
                 ${{ prediction }}
             </section>
+            <section class="flex flex-col items-center">
+                {% for text in texts %}
+                    <p>{{text}}</p>
+                {% endfor %}
+            </section>
             {% if quick_sell %}
                 <section class="flex flex-col items-center gap-5">
                     <h1 class="text-3xl">Verkoop je diamant vandaag nog aan onze vertrouwde partner</h1>

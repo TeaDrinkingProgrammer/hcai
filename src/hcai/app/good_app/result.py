@@ -21,7 +21,6 @@ def index(request: HttpRequest):
         feedback = GoodAppFeedback(rating=rating)
         feedback.save()
         return HttpResponse(status=200)
-    form = request.session.get('form', '')
     model_type = request.session.get('model_type', '')
     plot, texts = model.shap(model_type, form["carat"], form["x"], form["y"], form["z"])
     rating = request.GET.get('rating', None)
