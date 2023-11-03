@@ -21,13 +21,15 @@ def index(request: HttpRequest):
         feedback = GoodAppFeedback(rating=rating)
         feedback.save()
         return HttpResponse(status=200)
-    
+    form = request.session.get('form', '')
+    model_type = request.session.get('model_type', '')
+    plot, texts = model.shap(model_type, form["carat"], form["x"], form["y"], form["z"])
     rating = request.GET.get('rating', None)
     avg, n_votes = calc_avg()
     if rating is not None:
         # Get the rating from the request
         # After the rating is given, redirect to the result page
-        return render(request, "hcai/good_app/result.html", {"avg": avg, "n_votes": n_votes, "rating": rating, "prediction": request.session.get('prediction', '') })
+        return render(request, "hcai/good_app/result.html", {"avg": avg, "n_votes": n_votes, "rating": rating, "prediction": request.session.get('prediction', ''), "plot": plot, "texts": texts})
     else:
-        return render(request, "hcai/good_app/result.html",{"avg": avg, "n_votes": n_votes, "rating": 0, "prediction": request.session.get('prediction', '')  })
+        return render(request, "hcai/good_app/result.html",{"avg": avg, "n_votes": n_votes, "rating": 0, "prediction": request.session.get('prediction', ''), "plot": plot, "texts": texts})
     

@@ -23,9 +23,11 @@ def index(request: HttpRequest):
                 print("User did not accept terms")
             # redirect to a new URL:
             print("Data" , form.cleaned_data)
-            prediction = model.predict_good(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"])
+            prediction, model_type = model.predict_good(form.cleaned_data["carat"], form.cleaned_data["x"], form.cleaned_data["y"], form.cleaned_data["z"])
             print("Predicted: ", prediction)
             request.session['prediction'] = round(prediction, 2)
+            request.session['form'] = form.cleaned_data
+            request.session['model_type'] = model_type
             return redirect("/good_app/result")
     # if a GET (or any other method) we'll create a blank form
     else:
