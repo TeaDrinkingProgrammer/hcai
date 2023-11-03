@@ -11,7 +11,7 @@
             class="underline underline-offset-8 decoration-2 hover:decoration-4 decoration-sky-500 dark:decoration-sky-400" 
             href="https://www.kaggle.com/datasets/shivam2503/diamonds"
             target="_blank">
-            diamantenverkooptransacties</a> geleerd om nauwkeurige voorspellingen uit te voeren. Op dit moment kan Diamant Adviseur u met een zekerheid van <span class="font-bold">92%</span> vertellen wat de prijs van een diamant is.</p>
+            diamantenverkooptransacties</a> geleerd om nauwkeurige voorspellingen uit te voeren. Op dit moment kan Diamant Adviseur u met een zekerheid van <span class="font-bold">91.6%</span> vertellen wat de prijs van een diamant is.</p>
         <p>Ons AI-model gebruikt enkele gegevens om de prijs van een diamant te voorspellen: het karaatgewicht en de afmetingen in de lengte (x), breedte (y) en diepte (z).</p>
     
         <h2>Karaatgewicht</h2>
@@ -38,8 +38,8 @@
         <p>Kort gezegd, ons AI-model kijkt naar het gewicht en de vorm van de diamant en maakt op basis daarvan een schatting van de prijs. Het is als een diamantenkenner die u helpt om te begrijpen waarom sommige diamanten meer kosten dan andere. We hopen dat dit u helpt bij het nemen van beslissingen bij het kopen of verkopen van diamanten.</p>
         <h1>Impact van variabelen</h1>
         <p>Er worden twee modellen gebruikt. Bij een gewicht boven 40mg, een breedte boven de 10.74mm, een lengte van meer dan 10.54 of een diepte van 6.98mm wordt een lineair model gebruikt.</p>
-        <p>Onder deze waarden, dus bij de meeste diamanten, wordt een "Decision Forest" gebruikt.</p>
-        <h2>Decision Forest</h2>
+        <p>Onder deze waarden, dus bij de meeste diamanten, wordt een "Random Forest" gebruikt.</p>
+        <h2>Random Forest</h2>
         <img src="{% static '/media/output-rf-final.png' %}" alt="Grafieken die het model uitleggen">
         <p>In de bovenstaande grafiek wordt de impact van individuele variabelen laten zien. De variabelen zijn van hoge impact naar lage impact gesorteerd.</p>
         <p>U kunt dus zien dat de karaatwaarde heel belangrijk is voor de waarde van de diamant</p>
