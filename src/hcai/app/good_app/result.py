@@ -11,7 +11,7 @@ def index(request: HttpRequest):
         avg = 0
         if len(feedbacks) > 0:
             avg = sum([feedback.rating for feedback in feedbacks]) / len(feedbacks)
-        return round(avg, 2), len(feedbacks)
+        return round(avg, 1), len(feedbacks)
     
     if request.method == "POST":
         # Parse json from request body

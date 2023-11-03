@@ -2,6 +2,8 @@
 
 {% load humanize %}
 
+{% load static %}
+
 {% block content %}
     <div class="flex flex-col justify-center h-full">
         <div class="flex flex-col items-center gap-10">
@@ -10,8 +12,8 @@
                     <h1 class="text-3xl">Uw geschatte prijs is:</h1>
                     <span class="font-bold">${{ prediction|intcomma }}</span>
                     <p>De accuraatheid van uw voorspelling is <span class="font-bold">91.6%</span></p>
-                </section>>
-                <section>
+                </section>
+                <section">
                     {{plot|safe}}
                 </section>
             </div>
@@ -28,20 +30,11 @@
                 </section>
                 <section class="">
                     <div class="flex flex-col items-center gap-2 w-prose" style="padding: 2em">
-                        <h1 class="text-3xl">Feedback</h1>
-                        <section class="flex flex-col gap-1">
-                            <p>Gemiddeld aantal sterren: {{avg}}</p>
-                            <p>Aantal stemmen: {{n_votes}}</p>
-                        </section>
+                        <!-- <h1 class="text-3xl">Feedback</h1> -->
                         <section class="flex flex-col gap-3 items-center">
                             {% if rating|add:"0" == 0 %}
-                            <h2 class="text-2xl">Geef ook uw feedback</h2>
-                            {% endif %}
-    
-                            {% if rating|add:"0" != 0 %}
-                                <h2 class="text-xl">Bedankt voor je feedback!</h2>
-                                <p>Dit helpt ons met het verbeteren van de voorspellingen.</p>
-                            {% endif %}
+                            <h2 class="text-3xl">Geef uw feedback</h2>
+                            
                             <div class="flex gap-1 flex-row">
                                 <!-- If the rating is 0, this means that the user has not yet filled in the rating. Render onclick  --> 
                                 <a {% if rating|add:"0" == 0 %}onclick="rate(1, '/good_app/result?rating=1')"class="cursor-pointer" {% endif %}>
@@ -100,7 +93,39 @@
                                     {% endif %}
                                 </a>
                             </div>
+                            {% endif %}
+    
+                            {% if rating|add:"0" != 0 %}
+                                <h2 class="text-2xl">Bedankt voor uw feedback!</h2>
+                                <p>Dit helpt ons met het verbeteren van de website.</p>
+
+                                
+                                <p>Aantal stemmen: {{n_votes}}</p>      
+                                {% if avg <= 0.5 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/0.5-stars.png' %}" alt="0.5 stars">
+                                {% elif avg <= 1 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/1-stars.png' %}" alt="1 stars">
+                                {% elif avg <= 1.5 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/1.5-stars.png' %}" alt="1.5 stars">
+                                {% elif avg <= 2 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/2-stars.png' %}" alt="2 stars">
+                                {% elif avg <= 2.5 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/2.5-stars.png' %}" alt="2.5 stars">
+                                {% elif avg <= 3 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/3-stars.png' %}" alt="3 stars">
+                                {% elif avg <= 3.5 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/3.5-stars.png' %}" alt="3.5 stars">
+                                {% elif avg <= 4 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/4-stars.png' %}" alt="4 stars">
+                                {% elif avg <= 4.5 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/4.5-stars.png' %}" alt="4.5 stars">
+                                {% elif avg <= 5 %}
+                                    <img class="w-1/2" src="{% static '/media/ratings/5-stars.png' %}" alt="5 stars">
+                                {% endif %}           
+                                ({{avg}})
+                            {% endif %}
                         </section>
+                        
                     </div>
                 </section>
             </div>

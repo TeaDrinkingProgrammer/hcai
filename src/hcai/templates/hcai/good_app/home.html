@@ -4,12 +4,11 @@
 
 {% block content %}
 <div class="flex flex-col justify-between items-center">
-    <section class="flex flex-col gap-5 py-5 items-center justify-center h-screen">
+    <section class="flex flex-col gap-5 py-5 items-center justify-center">
         <img class="w-6/12" src="{% static '/media/banner_good_app.png' %}" alt="My image">
         <h2 class="mb-4 text-4xl font-semibold">Een eerlijke prijs voor uw diamant</h2>
         <h4 class="mb-6 text-xl font-semibold">Een schatting op maat met behulp van Kunstmatige Intelligentie</h4>
-        <h2 class="text-2xl">Dit denken onze gebruikers van Diamant Adviseur</h2>
-        <p>Het gemiddelde cijfer is {{avg_feedback|add:"0" }} van de 5 sterren met {{n_feedback}} stemmen</p>
+        
         <a
         href="#briefing"
         type="button"
@@ -19,17 +18,17 @@
         Hoe het werkt
         </a>
     </section>
-    <section class="flex justify-center h-screen pb-20" id="briefing">
+    <section class="flex justify-center pb-20" id="briefing">
         <div class="flex flex-col items-center gap-20">
             <h1 class="text-4xl font-semibold">Hoe werkt het?</h1>
             <div class="flex flex-col items-center gap-6 w-2/3">
                 <div class="flex flex-col gap-2 grow">
                     <h1 class="text-center text-2xl">Vragenlijst 🖊️</h1>
-                    <p>U vult een vragenlijst in met vragen over de eigenschappen van uw diamant. Als u hiermee akkoord gaat, worden uw data
+                    <p class="text-center">U vult een vragenlijst in met vragen over de eigenschappen van uw diamant. <br>Als u hiermee akkoord gaat, worden uw data anoniem verwerkt volgens het
                         <a 
                         class="underline underline-offset-8 decoration-2 hover:decoration-4 decoration-sky-500 dark:decoration-sky-400" 
                         href="/good_app/privacy">
-                        anoniem verwerkt.
+                        Privacybeleid.
                         </a>
                     </p>
                 </div>
@@ -38,18 +37,18 @@
                 </svg>
                 <div class="flex flex-col gap-2">
                     <h1 class="text-center text-2xl">Voorspelling 🔮</h1>
-                    <p>De kunstmatige intelligentie maakt een schatting op basis van de ingevoerde data. De schatting is gebaseerd op echte diamantenverkooptransacties
-                        over de eigenschappen van diamanten en hun prijzen.</p>
-                        <a 
-                        class="underline underline-offset-8 decoration-2 hover:decoration-4 decoration-sky-500 dark:decoration-sky-400"
-                        href="/good_app/explanation">Meer informatie</a>
+                    <p class="text-center">De kunstmatige intelligentie maakt een schatting op basis van de ingevoerde data. De schatting is gebaseerd op echte diamantenverkooptransacties
+                        over de eigenschappen van diamanten en hun prijzen. <a 
+                        class="text-center underline underline-offset-8 decoration-2 hover:decoration-4 decoration-sky-500 dark:decoration-sky-400"
+                        href="/good_app/explanation">Meer informatie</a></p>
+                        
                 </div>
                 <svg class="h-24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                 </svg>       
                 <div class="flex flex-col gap-2 grow">
                     <h1 class="text-center text-2xl">Schatting en uitleg 📄</h1>
-                    <p>U krijgt een <span class="font-bold">schatting</span> met uitleg over hoe het algoritme op deze schatting is gekomen.</p>
+                    <p class="text-center">U krijgt een <span class="font-bold">schatting</span> met uitleg over hoe het algoritme op deze schatting is gekomen.</p>
                 </div>
             </div>
             <div class="flex justify-center">
@@ -65,7 +64,32 @@
         </div>
     </section>
     <section class="flex justify-center w-full pb-28">
-    <p>Wilt u partner worden van Diamant Adviseur? Stuur een email naar <a class=" pl-1 underline underline-offset-8 decoration-2 hover:decoration-4 decoration-sky-500 dark:decoration-sky-400" href="mailto:partners@diamantadviseurs.nl"> partners@diamantadviseurs.nl</a></p>
+    <p>Wilt u partner worden van Diamant Adviseur? Stuur een email naar<a class=" pl-1 underline underline-offset-8 decoration-2 hover:decoration-4 decoration-sky-500 dark:decoration-sky-400" href="mailto:partners@diamantadviseurs.nl">partners@diamantadviseurs.nl</a></p>
+    </section>
+
+    <section class="flex flex-col items-center gap-2 pb-20">
+        <h2 class="text-2xl">Dit denken de gebruikers van Diamant Adviseur</h2>
+        {% if avg_feedback <= 0.5 %}
+            <img class="w-1/2" src="{% static '/media/ratings/0.5-stars.png' %}" alt="0.5 stars">
+        {% elif avg_feedback <= 1 %}
+            <img class="w-1/2" src="{% static '/media/ratings/1-stars.png' %}" alt="1 stars">
+        {% elif avg_feedback <= 1.5 %}
+            <img class="w-1/2" src="{% static '/media/ratings/1.5-stars.png' %}" alt="1.5 stars">
+        {% elif avg_feedback <= 2 %}
+            <img class="w-1/2" src="{% static '/media/ratings/2-stars.png' %}" alt="2 stars">
+        {% elif avg_feedback <= 2.5 %}
+            <img class="w-1/2" src="{% static '/media/ratings/2.5-stars.png' %}" alt="2.5 stars">
+        {% elif avg_feedback <= 3 %}
+            <img class="w-1/2" src="{% static '/media/ratings/3-stars.png' %}" alt="3 stars">
+        {% elif avg_feedback <= 3.5 %}
+            <img class="w-1/2" src="{% static '/media/ratings/3.5-stars.png' %}" alt="3.5 stars">
+        {% elif avg_feedback <= 4 %}
+            <img class="w-1/2" src="{% static '/media/ratings/4-stars.png' %}" alt="4 stars">
+        {% elif avg_feedback <= 4.5 %}
+            <img class="w-1/2" src="{% static '/media/ratings/4.5-stars.png' %}" alt="4.5 stars">
+        {% elif avg_feedback <= 5 %}
+            <img class="w-1/2 mb-10" src="{% static '/media/ratings/5-stars.png' %}" alt="5 stars">
+        {% endif %}
     </section>
 </div>
 {% endblock content %}

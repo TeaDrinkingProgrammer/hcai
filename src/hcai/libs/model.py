@@ -61,9 +61,9 @@ class Model:
         texts = []
 
         texts.append(f"De ingevoerde waarde voor karaat drukt de prijs {'naar boven.' if shap_values_single[0, 0] >= 0 else 'naar beneden.'}")
-        texts.append(f"De ingevoerde waarde voor x drukt de prijs {'naar boven.' if shap_values_single[0, 1] >= 0 else 'naar beneden.'}")
-        texts.append(f"De ingevoerde waarde voor y drukt de prijs {'naar boven.' if shap_values_single[0, 2] >= 0 else 'naar beneden.'}")
-        texts.append(f"De ingevoerde waarde voor z drukt de prijs {'naar boven.' if shap_values_single[0, 3] >= 0 else 'naar beneden.'}")
+        texts.append(f"De ingevoerde waarde voor dimensie x drukt de prijs {'naar boven.' if shap_values_single[0, 1] >= 0 else 'naar beneden.'}")
+        texts.append(f"De ingevoerde waarde voor dimensie y drukt de prijs {'naar boven.' if shap_values_single[0, 2] >= 0 else 'naar beneden.'}")
+        texts.append(f"De ingevoerde waarde voor dimensie z drukt de prijs {'naar boven.' if shap_values_single[0, 3] >= 0 else 'naar beneden.'}")
         return shap_html, texts
         # return self._force_plot_html(self.rf_explainer_single.expected_value, self.rf_shap_values_single[0], x_input, ) 
         
