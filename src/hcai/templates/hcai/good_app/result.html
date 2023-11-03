@@ -2,10 +2,13 @@
 
 {% block content %}
     <div class="flex justify-center h-full">
-        <div class="flex flex-col justify-center gap-10">
+        <div class="flex flex-col justify-center gap-10 max-w-prose">
             <section class="flex flex-col items-center gap-5">
                 <h1 class="text-3xl">Uw geschatte prijs is:</h1>
                 ${{ prediction}}
+            </section>
+            <section>
+                De schatting is gebaseerd op een aantal kenmerken, maar niet op alle. Veel eigenschappen zijn niet meegenomen en kunnen ook bijdragen aan de prijs van de diamant.
             </section>
             <section class="">
                 <div class="flex flex-col items-center gap-2 w-prose" style="padding: 2em">
@@ -15,7 +18,14 @@
                         <p>Aantal stemmen: {{n_votes}}</p>
                     </section>
                     <section class="flex flex-col gap-3 items-center">
+                        {% if rating|add:"0" == 0 %}
                         <h2 class="text-2xl">Geef ook uw feedback</h2>
+                        {% endif %}
+
+                        {% if rating|add:"0" != 0 %}
+                            <h2 class="text-xl">Bedankt voor je feedback!</h2>
+                            <p>Dit helpt ons met het verbeteren van de voorspellingen.</p>
+                        {% endif %}
                         <div class="flex gap-1 flex-row">
                             <!-- If the rating is 0, this means that the user has not yet filled in the rating. Render onclick  --> 
                             <a {% if rating|add:"0" == 0 %}onclick="rate(1, '/good_app/result?rating=1')"class="cursor-pointer" {% endif %}>

@@ -16,7 +16,7 @@ class Model:
     def predict_good(self, carat: float, x: float, y: float, z: float):
         x_input = np.array([carat, x, y, z]).reshape(1, -1)
         x_input = self.scaler.transform(x_input)
-        if (carat > 5.01 or x > 10.74 or y > 58.9 or z > 31.8):
+        if (carat > 5.01 or x > 10.74 or y > 10.54 or z > 6.98):
             print("Using linear model")
             prediction = self.linear_model.predict(x_input)[0]
             print("Prediction 2: ", prediction)
