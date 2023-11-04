@@ -36,18 +36,18 @@
             </li>
         </ul>
         <p>Kort gezegd, ons AI-model kijkt naar het gewicht en de vorm van de diamant en maakt op basis daarvan een schatting van de prijs. Het is als een diamantenkenner die u helpt om te begrijpen waarom sommige diamanten meer kosten dan andere. We hopen dat dit u helpt bij het nemen van beslissingen bij het kopen of verkopen van diamanten.</p>
+        <br>
         <h1>Impact van variabelen</h1>
-        <p>Er worden twee modellen gebruikt. Bij een gewicht boven 40mg, een breedte boven de 10.74mm, een lengte van meer dan 10.54 of een diepte van 6.98mm wordt een lineair model gebruikt.</p>
-        <p>Onder deze waarden, dus bij de meeste diamanten, wordt een "Random Forest" gebruikt.</p>
+        <p>Er worden twee voorspellingsmodellen gebruikt. Bij een gewicht boven 2001mg, een breedte boven de 10.74mm, een lengte van meer dan 10.54 of een diepte van 6.98mm wordt een lineair model gebruikt.</p>
+        <p>Onder deze limietwaarden zitten de diamanten die normaal voorkomen. Hiervoor wordt een model genaamd "Random Forest" gebruikt.</p>
         <h2>Random Forest</h2>
         <img src="{% static '/media/output-rf-final.png' %}" alt="Grafieken die het model uitleggen">
-        <p>In de bovenstaande grafiek wordt de impact van individuele variabelen laten zien. De variabelen zijn van hoge impact naar lage impact gesorteerd.</p>
-        <p>U kunt dus zien dat de karaatwaarde heel belangrijk is voor de waarde van de diamant</p>
-        <p>Elk punt op de grafiek is een datapunt uit de originele dataset. De locatie geeft de "SHAPwaarde" oftewel de impact op het model uit. Hoog betekend veel impact, laag weinig impact. De kleur geeft de waarde van dat punt aan. Hoe roder, hoe roder hoe hoger de waarde.</p>
-        <p>Bij de karaatwaarde ziet u aan de rechterkant van de lijn dat lage waarden een kleinere impact hebben dan hogere waarden.</p>
+        <p>In de bovenstaande grafiek wordt de impact van elke diamantkenmerk getoond. De kenmerken zijn gesorteerd van hoge impact op de voorspelling naar lage impact. Het karaat is het belangrijkst voor de waardevoorspelling van de diamant.</p>
+        <p>Elk punt in de grafiek is een datapunt uit de gebruikte dataset. Het feit dat de datapunten voor karaat en y van blauw (aan de linkerkant) naar rood gaan (aan de rechterkant), zegt dat voor deze twee kenmerken een hogere waarde voor een hogere waardevoorspelling zorgt. In tegendeel kan een hogere waarde voor x en z de waardevoorspelling naar beneden duwen.</p>
         <img src="{% static '/media/output2-rf-final.png' %}" alt="Grafieken die het model uitleggen">
         <p>In deze grafiek ziet u alleen de impact van elke variabele. Zoals in de eerdere grafiek ook te zien was heeft de karaatwaarde de meeste impact.</p>
-        <h2>Liniear model</h2>
+        <h2>Lineair model</h2>
+        <p>Voor het lineair model geldt t.o.v. het bovenstaande voorspellingsmodel hetzelfde voor karaat en y. Echter hebben een hogere waarde voor kenmerk x en z hier wel altijd een positief effect op de voorspellingswaarde van de diamant.</p>
         <img src="{% static '/media/output-linear-final.png' %}" alt="Grafieken die het model uitleggen">
         <img src="{% static '/media/output2-linear-final.png' %}" alt="Grafieken die het model uitleggen">
     </div>
