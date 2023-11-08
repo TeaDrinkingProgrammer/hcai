@@ -56,7 +56,7 @@ class Model:
         print("y", shap_values_single[0, 2])
         print("z", shap_values_single[0, 3])
 
-        force_plot = shap.force_plot(explainer_single.expected_value, shap_values_single[0], feature_names=['karaat', 'x', 'y', 'z'], plot_cmap=['#77dd77', '#f99191'])
+        force_plot = shap.force_plot(explainer_single.expected_value, shap_values_single[0], feature_names=['karaat', 'x', 'y', 'z'], show=False, plot_cmap=['#77dd77', '#f99191'])
         shap_html = f"{shap.getjs()}<section>{force_plot.html()}</section>"
         texts = []
 
